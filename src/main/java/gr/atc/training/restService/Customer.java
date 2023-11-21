@@ -1,4 +1,4 @@
-package gr.atc.training.customerAPI;
+package gr.atc.training.restService;
 
 public class Customer {
 	public int id;

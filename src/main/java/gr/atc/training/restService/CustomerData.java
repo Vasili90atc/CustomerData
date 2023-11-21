@@ -1,4 +1,4 @@
-package gr.atc.training.customerAPI;
+package gr.atc.training.restService;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -33,6 +33,7 @@ public class CustomerData {
 		BufferedReader reader = null;
 		reader = new BufferedReader(new InputStreamReader(f));
 		String line = null;
+		//while()
 		try {
 			 line = reader.readLine();
 		} catch (IOException e) {
@@ -43,12 +44,12 @@ public class CustomerData {
 		customers = jsonReader.fromJson(line, new TypeToken<List<Customer>>() {}.getType());
 	}
 	
-	public String getCustomerById(int id) {
+	public Customer getCustomerById(int id) {
 		for(int i=0; i<customers.size(); i++) {
 			if (customers.get(i).id == id) {
-				return customers.get(i).toString();
+				 return customers.get(id);
 			}
 		}
-		return "No such customer found.";
+		return null;
 	}
 }
