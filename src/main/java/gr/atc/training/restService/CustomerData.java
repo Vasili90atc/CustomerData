@@ -17,7 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class CustomerData {
 	List<Customer> customers = new ArrayList<>();
-	
+
 	public CustomerData() {
 		FileInputStream f;
 		try {
@@ -33,23 +33,36 @@ public class CustomerData {
 		BufferedReader reader = null;
 		reader = new BufferedReader(new InputStreamReader(f));
 		String line = null;
-		//while()
+		// while()
 		try {
-			 line = reader.readLine();
+			line = reader.readLine();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		Gson jsonReader = new Gson();
-		customers = jsonReader.fromJson(line, new TypeToken<List<Customer>>() {}.getType());
+		customers = jsonReader.fromJson(line, new TypeToken<List<Customer>>() {
+		}.getType());
 	}
-	
+
 	public Customer getCustomerById(int id) {
-		for(int i=0; i<customers.size(); i++) {
+		for (int i = 0; i < customers.size(); i++) {
 			if (customers.get(i).id == id) {
-				 return customers.get(id);
+				return customers.get(i);
 			}
 		}
 		return null;
+	}
+
+	public List<Customer> getCustomerByName(String name_last) {
+		List<Customer> returnedCustomers = new ArrayList<Customer>();
+		for (int i = 0; i < customers.size(); i++) {
+			if (customers.get(i).getLast().equals(name_last)) {
+				returnedCustomers.add(customers.get(i));
+			}
+		}
+		if (returnedCustomers.isEmpty()) return null;
+		return returnedCustomers;
+
 	}
 }

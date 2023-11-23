@@ -1,5 +1,6 @@
 package gr.atc.training.restService;
 
+
 public class Customer {
 	public int id;
 	public String email;
@@ -22,16 +23,17 @@ public class Customer {
 	@Override
 	public String toString() {
 		String s = "id: " + Integer.toString(id) + ", email: " + email + ", first: " + 
-	first + ", last: " + last + ", company:" + company + ", created at: " + created_at + ", country: " + country + "\n";
+	first + ", last: " + last + ", company:" + company + ", created at: " + created_at + ", country: " + country +  "\n";
 		return s;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getEmail() {
 		return email;
 	}
@@ -68,5 +70,4 @@ public class Customer {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	
 }
