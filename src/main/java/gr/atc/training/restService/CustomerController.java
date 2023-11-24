@@ -22,9 +22,15 @@ public class CustomerController {
 		return ResponseEntity.ok(c);
 	}
 
-	@GetMapping("/customer/name/{lastname}")
-	public ResponseEntity<List<Customer>> getfindCustomerByName(@PathVariable String lastname) {
-		List<Customer> customers = cd.getCustomerByName(lastname);
+	@GetMapping("/customer/name/{name}")
+	public ResponseEntity<List<Customer>> getfindCustomerByName(@PathVariable String name) {
+		List<Customer> customers = cd.findByName(name);
 		return ResponseEntity.ok(customers);
 	}
+	 /* @GetMapping("/customer/name/{firstname}")
+	public ResponseEntity<List<Customer>> getfindCustomerByName(@PathVariable String firstname) {
+		List<Customer> customers = cd.getCustomerByName(firstname);
+		return ResponseEntity.ok(customers);
+	} */
+
 }

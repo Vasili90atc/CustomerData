@@ -61,7 +61,22 @@ public class CustomerData {
 				returnedCustomers.add(customers.get(i));
 			}
 		}
-		if (returnedCustomers.isEmpty()) return null;
+		if (returnedCustomers.isEmpty())
+			return null;
+		return returnedCustomers;
+
+	}
+
+	public List<Customer> findByName(String name) {
+		List<Customer> returnedCustomers = new ArrayList<Customer>();
+		for (int i = 0; i < customers.size(); i++) {
+			if ((customers.get(i).getLast().equals(name)) || (customers.get(i).getFirst().equals(name))) {
+				returnedCustomers.add(customers.get(i));
+			}
+		}
+
+		if (returnedCustomers.isEmpty())
+			return null;
 		return returnedCustomers;
 
 	}

@@ -10,6 +10,7 @@ public class Customer {
 	public String created_at;
 	public String country;
 	
+	
 	public Customer(int id, String email, String first, String last, String company, String created_at, String country) {
 		this.id = id;
 		this.email = email;
